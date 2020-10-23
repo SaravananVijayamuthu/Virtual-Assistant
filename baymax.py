@@ -2,6 +2,7 @@ import datetime
 
 import pyttsx3  # text to speech
 import speech_recognition as spr
+import wikipedia
 
 import config as cfg
 
@@ -91,6 +92,13 @@ def UserCmd():
 
 # UserCmd()
 
+############
+"""
+Main func.
+it'll call greet first Then it'll check for the usr voice in query 
+and matches and execute the particular func
+"""
+############
 if __name__ == "__main__":
     greet()  # only once
     while True:
@@ -99,5 +107,11 @@ if __name__ == "__main__":
             time()
         elif cfg.BaymaxDate in query:
             date()
+        # Using WikiPedia Lib here search anything with word Baymax results will come from WikiPedia
+        elif cfg.BaymaxPedia in query:
+            speak(cfg.SearchingPedia)
+            query = query.replace(cfg.BaymaxPedia, "")
+            res = wikipedia.summary(query, sentences=3)
+            speak(res)
         elif cfg.BaymaxOff in query:
             quit()
