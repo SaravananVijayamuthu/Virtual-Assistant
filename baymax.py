@@ -3,6 +3,7 @@ import datetime
 import pyttsx3  # text to speech
 import speech_recognition as spr
 import wikipedia
+import smtplib
 
 import config as cfg
 
@@ -92,6 +93,45 @@ def UserCmd():
 
 # UserCmd()
 
+
+############
+#Wiki Using WikiPedia Lib here search anything with word Baymax results will come from WikiPedia
+############
+def Pedia(query):
+    speak(cfg.SearchingPedia)
+    query = query.replace(cfg.BaymaxPedia, "")
+    res = wikipedia.summary(query, sentences=3)
+    print(res)
+    speak(res)
+
+
+############
+# Mail
+############
+def SendMail(to, content):
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.ehlo()
+    server.starttls()  # checks connection
+    server.login("sarvidigilocker@gmail.com", "digiintern")
+    server.sendmail("sarvidigilocker@gmail.com", to, content)
+    server.close()
+
+
+############
+# Content Mail
+############
+def contentMail():
+    try:
+        speak("Message please")
+        content = UserCmd()
+        to = cfg.sendTo
+        SendMail(to, content)
+        speak(cfg.SuccessMail)
+    except Exception as e:
+        print(e)
+        speak(cfg.FailureMail)
+
+
 ############
 """
 Main func.
@@ -100,18 +140,18 @@ and matches and execute the particular func
 """
 ############
 if __name__ == "__main__":
-    greet()  # only once
+    # greet()  # only once
     while True:
         query = UserCmd().lower()
         if cfg.BaymaxTime in query:
             time()
         elif cfg.BaymaxDate in query:
             date()
-        # Using WikiPedia Lib here search anything with word Baymax results will come from WikiPedia
         elif cfg.BaymaxPedia in query:
-            speak(cfg.SearchingPedia)
-            query = query.replace(cfg.BaymaxPedia, "")
-            res = wikipedia.summary(query, sentences=3)
-            speak(res)
+            Pedia(query)
+        # elif cfg.BaymaxEmail in query:
+        #     contentMail()
+        elif cfg.BaymaxEmail in query:
+            contentMail()
         elif cfg.BaymaxOff in query:
             quit()

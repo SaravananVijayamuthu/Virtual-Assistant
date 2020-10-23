@@ -8,8 +8,14 @@ Night = "Good Night, Sweet dreams"
 Welcome = "Hi I'm Baymax your virtual partner, How can I help you?"
 NotRecognize = "Can't get you, repeat it again please"
 SearchingPedia = "I'm, Working on it please wait!!"
+SuccessMail = "I have sent your mail Successfully"
+FailureMail = "I'm so sorry I can't send your mail, apologize"
+# Recipient mail's
+sendTo = ['18eucs100@skcet.ac.in', 'saravananraghul1820@gmail.com']
+
 # UserCmd's
 BaymaxTime = "what's the time"
 BaymaxDate = "today's date please"
 BaymaxOff = "shutdown"
-BaymaxPedia = "Baymax"
+BaymaxPedia = "baymax"
+BaymaxEmail = 'send email'
