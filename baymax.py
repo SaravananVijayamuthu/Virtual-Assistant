@@ -39,3 +39,18 @@ def date():
 
 
 # date()
+
+
+############
+# Greet
+############
+def greet():
+    speak("Welcome back!")
+    speak("The current time is")
+    time()
+    speak("The current date is")
+    date()
+    speak("Hi I'm Baymax your virtual partner, How can I help you?")
+
+
+greet()
