@@ -1,5 +1,6 @@
-import pyttsx3  # text to speech -> https://pypi.org/project/pyttsx3/
+import pyttsx3  # text to speech
 import datetime
+import speech_recognition as spr
 
 engine = pyttsx3.init()  # initial func. obj creation
 
