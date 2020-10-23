@@ -1,6 +1,9 @@
-import pyttsx3  # text to speech
 import datetime
+
+import pyttsx3  # text to speech
 import speech_recognition as spr
+
+import config as cfg
 
 engine = pyttsx3.init()  # initial func. obj creation
 
@@ -46,21 +49,44 @@ def date():
 # Greet
 ############
 def greet():
-    speak("Welcome back!")
-    speak("The current time is")
+    speak(cfg.w)
+    speak(cfg.CurrT)
     time()
-    speak("The current date is")
+    speak(cfg.CurrD)
     date()
     hour = datetime.datetime.now().hour
     if hour >= 6 and hour < 12:
-        speak("Hey,Good Morning. Have a nice day!")
+        speak(cfg.Morning)
     elif hour >= 12 and hour < 18:
-        speak("Hey, Good Afternoon. Have a Healthy meal!")
+        speak(cfg.Afternoon)
     elif hour >= 18 and hour < 24:
-        speak("Hey, Good Evening. Don't forget to go for a walk")
+        speak(cfg.Evening)
     else:
-        speak("Good Night, Sweet dreams")
-    speak("Hi I'm Baymax your virtual partner, How can I help you?")
+        speak(cfg.Night)
+    speak(cfg.Welcome)
 
 
-greet()
+# greet()
+
+
+############
+# User Cmd
+############
+def UserCmd():
+    rec = spr.Recognizer()
+    with spr.Microphone() as source:  # Getting usr cmd through mic
+        print("Listening..")
+        rec.pause_threshold = 1  # Waiting time
+        audio = rec.listen(source)  # listeen to microphone
+    try:
+        print("Recognizing..")
+        query = rec.recognize_google(audio, language="en-in")
+        print(query)
+    except Exception as e:
+        print(e)
+        speak(cfg.NotRecognize)
+        return "None"
+    return query
+
+
+UserCmd()
