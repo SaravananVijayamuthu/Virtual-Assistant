@@ -24,6 +24,7 @@ def speak(audio):
 ############
 def time():
     Time = datetime.datetime.now().strftime("%H:%M:%S")  # converting to str format
+    speak(cfg.CurrT)
     speak(Time)
 
 
@@ -37,6 +38,7 @@ def date():
     year = int(datetime.datetime.now().year)
     month = int(datetime.datetime.now().month)
     date = int(datetime.datetime.now().day)
+    speak(cfg.CurrD)
     speak(date)
     speak(month)
     speak(year)
@@ -50,9 +52,7 @@ def date():
 ############
 def greet():
     speak(cfg.w)
-    speak(cfg.CurrT)
     time()
-    speak(cfg.CurrD)
     date()
     hour = datetime.datetime.now().hour
     if hour >= 6 and hour < 12:
@@ -89,4 +89,15 @@ def UserCmd():
     return query
 
 
-UserCmd()
+# UserCmd()
+
+if __name__ == "__main__":
+    greet()  # only once
+    while True:
+        query = UserCmd().lower()
+        if cfg.BaymaxTime in query:
+            time()
+        elif cfg.BaymaxDate in query:
+            date()
+        elif cfg.BaymaxOff in query:
+            quit()
