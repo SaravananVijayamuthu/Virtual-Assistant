@@ -10,12 +10,21 @@ NotRecognize = "Can't get you, repeat it again please"
 SearchingPedia = "I'm, Working on it please wait!!"
 SuccessMail = "I have sent your mail Successfully"
 FailureMail = "I'm so sorry I can't send your mail, apologize"
+Search = "Intersting, How can I be of help to you?"
+CommonErr = "Sorry Something went wrong"
+MissYou = "Bye, Take care!!"
+
+# Browser
+WbrPath = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+WebURL = "https://www.google.com.tr/search?q={}"
+
 # Recipient mail's
-sendTo = ['18eucs100@skcet.ac.in', 'saravananraghul1820@gmail.com']
+sendTo = ["18eucs100@skcet.ac.in", "saravananraghul1820@gmail.com"]
 
 # UserCmd's
 BaymaxTime = "what's the time"
 BaymaxDate = "today's date please"
-BaymaxOff = "shutdown"
+BaymaxOff = "take rest"
 BaymaxPedia = "baymax"
-BaymaxEmail = 'send email'
+BaymaxSearch = "find"
+BaymaxEmail = "send email"

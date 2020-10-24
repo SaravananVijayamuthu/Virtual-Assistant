@@ -1,11 +1,4 @@
-import datetime
-
-import pyttsx3  # text to speech
-import speech_recognition as spr
-import wikipedia
-import smtplib
-
-import config as cfg
+from imports import *
 
 engine = pyttsx3.init()  # initial func. obj creation
 
@@ -25,9 +18,13 @@ def speak(audio):
 # Time
 ############
 def time():
-    Time = datetime.datetime.now().strftime("%H:%M:%S")  # converting to str format
-    speak(cfg.CurrT)
-    speak(Time)
+    try:
+        Time = datetime.datetime.now().strftime("%H:%M:%S")  # converting to str format
+        speak(cfg.CurrT)
+        speak(Time)
+    except Exception as e:
+        print(e)
+        speak(cfg.CommonErr)
 
 
 # time()
@@ -37,13 +34,17 @@ def time():
 # Date
 ############
 def date():
-    year = int(datetime.datetime.now().year)
-    month = int(datetime.datetime.now().month)
-    date = int(datetime.datetime.now().day)
-    speak(cfg.CurrD)
-    speak(date)
-    speak(month)
-    speak(year)
+    try:
+        year = int(datetime.datetime.now().year)
+        month = int(datetime.datetime.now().month)
+        date = int(datetime.datetime.now().day)
+        speak(cfg.CurrD)
+        speak(date)
+        speak(month)
+        speak(year)
+    except Exception as e:
+        print(e)
+        speak(cfg.CommonErr)
 
 
 # date()
@@ -53,19 +54,23 @@ def date():
 # Greet
 ############
 def greet():
-    speak(cfg.w)
-    time()
-    date()
-    hour = datetime.datetime.now().hour
-    if hour >= 6 and hour < 12:
-        speak(cfg.Morning)
-    elif hour >= 12 and hour < 18:
-        speak(cfg.Afternoon)
-    elif hour >= 18 and hour < 24:
-        speak(cfg.Evening)
-    else:
-        speak(cfg.Night)
-    speak(cfg.Welcome)
+    try:
+        speak(cfg.w)
+        time()
+        date()
+        hour = datetime.datetime.now().hour
+        if hour >= 6 and hour < 12:
+            speak(cfg.Morning)
+        elif hour >= 12 and hour < 18:
+            speak(cfg.Afternoon)
+        elif hour >= 18 and hour < 24:
+            speak(cfg.Evening)
+        else:
+            speak(cfg.Night)
+        speak(cfg.Welcome)
+    except Exception as e:
+        print(e)
+        speak(cfg.CommonErr)
 
 
 # greet()
@@ -95,14 +100,33 @@ def UserCmd():
 
 
 ############
-#Wiki Using WikiPedia Lib here search anything with word Baymax results will come from WikiPedia
+# Wiki Using WikiPedia Lib here search anything with word Baymax results will come from WikiPedia
 ############
 def Pedia(query):
-    speak(cfg.SearchingPedia)
-    query = query.replace(cfg.BaymaxPedia, "")
-    res = wikipedia.summary(query, sentences=3)
-    print(res)
-    speak(res)
+    try:
+        speak(cfg.SearchingPedia)
+        query = query.replace(cfg.BaymaxPedia, "")
+        res = wikipedia.summary(query, sentences=3)
+        print(res)
+        speak(res)
+    except Exception as e:
+        print(e)
+        speak(cfg.CommonErr)
+
+
+############
+# Browser
+############
+def Browser():
+    try:
+        speak(cfg.Search)
+        search = UserCmd().lower()
+        wbr_Path = cfg.WbrPath
+        url = cfg.WebURL.format(search)
+        wbr.open_new_tab(url)
+    except Exception as e:
+        print(e)
+        speak(cfg.CommonErr)
 
 
 ############
@@ -149,9 +173,10 @@ if __name__ == "__main__":
             date()
         elif cfg.BaymaxPedia in query:
             Pedia(query)
-        # elif cfg.BaymaxEmail in query:
-        #     contentMail()
+        elif cfg.BaymaxSearch in query:
+            Browser()
         elif cfg.BaymaxEmail in query:
             contentMail()
         elif cfg.BaymaxOff in query:
+            speak(cfg.MissYou)
             quit()
