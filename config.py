@@ -13,7 +13,7 @@ FailureMail = "I'm so sorry I can't send your mail, apologize"
 Search = "Intersting, How can I be of help to you?"
 CommonErr = "Sorry Something went wrong"
 MissYou = "Bye, Take care!!"
-
+Screenshot = "Screen saved successfully!!"
 # Browser
 WbrPath = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
 WebURL = "https://www.google.com.tr/search?q={}"
@@ -35,3 +35,4 @@ SysStart = "system restart"
 BaymaxSong = "play songs"
 BaymaxMem = "remember this"
 BaymaxHelp = "remember anything"
+BaymaxScreenshot = "take screenshot"

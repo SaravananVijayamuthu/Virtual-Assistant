@@ -9,6 +9,7 @@ engine = pyttsx3.init()  # initial func. obj creation
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+    
 
 
 # speak("Hi, Baymax here how you doing?")
@@ -181,6 +182,13 @@ def Songs():
 
 
 ############
+# ScreenShot
+############
+def ScreenShot():
+    img = pyautogui.screenshot()
+    img.save("D:\\work\\mini_project\\screenshot.png")
+
+############
 # Memory
 ############
 def Remember():
@@ -195,6 +203,7 @@ def Remember():
 def ReturnRem():
     mem = open("data.txt", "r")
     speak(cfg.WhatIRem + mem.read())
+
 
 
 ############
@@ -230,6 +239,9 @@ if __name__ == "__main__":
             Remember()
         elif cfg.BaymaxHelp in query:
             ReturnRem()
+        elif cfg.BaymaxScreenshot in query:
+            ScreenShot()
+            speak(cfg.Screenshot)
         elif cfg.BaymaxOff in query:
             speak(cfg.MissYou)
             quit()
