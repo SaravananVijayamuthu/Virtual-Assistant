@@ -9,7 +9,6 @@ engine = pyttsx3.init()  # initial func. obj creation
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
-    
 
 
 # speak("Hi, Baymax here how you doing?")
@@ -122,7 +121,7 @@ def Browser():
     try:
         speak(cfg.Search)
         search = UserCmd().lower()
-        wbr_Path = cfg.WbrPath
+        # wbr_Path = cfg.WbrPath
         url = cfg.WebURL.format(search)
         wbr.open_new_tab(url)
     except Exception as e:
@@ -188,6 +187,18 @@ def ScreenShot():
     img = pyautogui.screenshot()
     img.save("D:\\work\\mini_project\\screenshot.png")
 
+
+############
+# CPU
+############
+def Battery():
+    usage = str(psutil.cpu_percent())
+    speak(cfg.CPU + usage)
+    battery = psutil.sensors_battery()
+    speak(cfg.Battery)
+    speak(battery.percent)
+
+
 ############
 # Memory
 ############
@@ -203,7 +214,6 @@ def Remember():
 def ReturnRem():
     mem = open("data.txt", "r")
     speak(cfg.WhatIRem + mem.read())
-
 
 
 ############
@@ -239,6 +249,8 @@ if __name__ == "__main__":
             Remember()
         elif cfg.BaymaxHelp in query:
             ReturnRem()
+        elif cfg.BaymaxBattery in query:
+            Battery()
         elif cfg.BaymaxScreenshot in query:
             ScreenShot()
             speak(cfg.Screenshot)
