@@ -17,7 +17,8 @@ MissYou = "Bye, Take care!!"
 # Browser
 WbrPath = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
 WebURL = "https://www.google.com.tr/search?q={}"
-
+WhatToRem = "what to remember please do say, only then I can remember"
+WhatIRem = "Yeah, I do remember"
 # Recipient mail's
 sendTo = ["18eucs100@skcet.ac.in", "saravananraghul1820@gmail.com"]
 
@@ -32,3 +33,5 @@ SysOut = "system log out"
 SysDown = "system shutdown"
 SysStart = "system restart"
 BaymaxSong = "play songs"
+BaymaxMem = "remember this"
+BaymaxHelp = "remember anything"

@@ -181,6 +181,23 @@ def Songs():
 
 
 ############
+# Memory
+############
+def Remember():
+    speak(cfg.WhatToRem)
+    data = UserCmd()
+    speak("Got it I'll remember it")
+    mem = open("data.txt", "w")
+    mem.write(data)
+    mem.close()
+
+
+def ReturnRem():
+    mem = open("data.txt", "r")
+    speak(cfg.WhatIRem + mem.read())
+
+
+############
 """
 Main func.
 it'll call greet first Then it'll check for the usr voice in query 
@@ -209,6 +226,10 @@ if __name__ == "__main__":
             Restart()
         elif cfg.BaymaxSong in query:
             Songs()
+        elif cfg.BaymaxMem in query:
+            Remember()
+        elif cfg.BaymaxHelp in query:
+            ReturnRem()
         elif cfg.BaymaxOff in query:
             speak(cfg.MissYou)
             quit()
