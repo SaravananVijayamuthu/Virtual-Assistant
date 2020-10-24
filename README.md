@@ -47,8 +47,9 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
 ```
 
 ## User Commands
+
 ```
-**_Time = "what's the time"
+Time = "what's the time"
 Date = "today's date please"
 Bye = "take rest"
 Wikipedia Search = "baymax"
@@ -62,9 +63,9 @@ Set Remainder = "remember this"
 Get Remainder = "remember anything"
 Screenshot = "take screenshot"
 Cpu and Battery status = "cpu status"
-Weather Report = "weather report"_**
-
+Weather Report = "weather report"
 ```
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
