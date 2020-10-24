@@ -155,7 +155,15 @@ def contentMail():
         print(e)
         speak(cfg.FailureMail)
 
-
+############
+# System Controls
+############
+def Logout():
+    os.system("shutdown /l")
+def ShutDown():
+    os.system("shutdown /s")
+def Restart():
+    os.system("shutdown /r")
 ############
 """
 Main func.
@@ -177,6 +185,12 @@ if __name__ == "__main__":
             Browser()
         elif cfg.BaymaxEmail in query:
             contentMail()
+        elif cfg.SysOut in query:
+            Logout()
+        elif cfg.SysDown in query:
+            ShutDown()
+        elif cfg.SysStart in query:
+            Restart()
         elif cfg.BaymaxOff in query:
             speak(cfg.MissYou)
             quit()
