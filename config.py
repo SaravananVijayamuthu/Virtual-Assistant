@@ -16,6 +16,8 @@ MissYou = "Bye, Take care!!"
 Screenshot = "Screen saved successfully!!"
 CPU = "CPU usage is"
 Battery = "Battery Percent remaning"
+BaymaxWC = "tell me which city"
+BaymaxWCNF = " City Not Found "
 # Browser
 WbrPath = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
 WebURL = "https://www.google.com.tr/search?q={}"
@@ -23,7 +25,9 @@ WhatToRem = "what to remember please do say, only then I can remember"
 WhatIRem = "Yeah, I do remember"
 # Recipient mail's
 sendTo = ["18eucs100@skcet.ac.in", "saravananraghul1820@gmail.com"]
-
+#API Key
+BaymaxAPI = "4566e307715694af5da3bd6692d58cab"
+WeatherURl = "http://api.openweathermap.org/data/2.5/weather?"
 # UserCmd's
 BaymaxTime = "what's the time"
 BaymaxDate = "today's date please"
@@ -39,3 +43,4 @@ BaymaxMem = "remember this"
 BaymaxHelp = "remember anything"
 BaymaxScreenshot = "take screenshot"
 BaymaxBattery = "cpu status"
+BaymaxWeather = "weather report"

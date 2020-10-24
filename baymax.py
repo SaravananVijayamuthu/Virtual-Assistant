@@ -1,5 +1,6 @@
 from imports import *
 
+
 engine = pyttsx3.init()  # initial func. obj creation
 
 
@@ -217,6 +218,39 @@ def ReturnRem():
 
 
 ############
+# Weather
+############
+def weather():
+    api_key = cfg.BaymaxAPI
+    Wurl = cfg.WeatherURl
+    speak(cfg.BaymaxWC)
+    cityN = UserCmd()
+    complete_url = Wurl + "appid=" + api_key + "&q=" + cityN
+    response = requests.get(complete_url)
+    js = response.json()
+    if js["cod"] != "404":
+        rs = js["main"]
+        currTemperature = rs["temp"]
+        currPressure = rs["pressure"]
+        currHumidity = rs["humidity"]
+        z = js["weather"]
+        report = z[0]["description"]
+        r = "in " + cityN + " Temperature is " + str(
+            int(currTemperature - 273.15)
+        ) + " degree celsius " + ", atmospheric pressure " + str(
+            currPressure
+        ) + " hpa unit" + ", humidity is " + str(
+            currHumidity
+        ) + " percent" " and " + str(
+            report
+        )
+        print(r)
+        speak(r)
+    else:
+        speak(cfg.BaymaxWCNF)
+
+
+############
 """
 Main func.
 it'll call greet first Then it'll check for the usr voice in query 
@@ -254,6 +288,8 @@ if __name__ == "__main__":
         elif cfg.BaymaxScreenshot in query:
             ScreenShot()
             speak(cfg.Screenshot)
+        elif cfg.BaymaxWeather in query:
+            weather()
         elif cfg.BaymaxOff in query:
             speak(cfg.MissYou)
             quit()
