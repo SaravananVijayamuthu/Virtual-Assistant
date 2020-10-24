@@ -25,7 +25,7 @@ WhatToRem = "what to remember please do say, only then I can remember"
 WhatIRem = "Yeah, I do remember"
 # Recipient mail's
 sendTo = ["18eucs100@skcet.ac.in", "saravananraghul1820@gmail.com"]
-#API Key
+# API Key
 BaymaxAPI = "4566e307715694af5da3bd6692d58cab"
 WeatherURl = "http://api.openweathermap.org/data/2.5/weather?"
 # UserCmd's
