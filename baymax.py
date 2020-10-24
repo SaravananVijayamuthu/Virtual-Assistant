@@ -91,7 +91,7 @@ def UserCmd():
         print(query)
     except Exception as e:
         print(e)
-        speak(cfg.NotRecognize)
+        # speak(cfg.NotRecognize)
         return "None"
     return query
 
@@ -155,15 +155,31 @@ def contentMail():
         print(e)
         speak(cfg.FailureMail)
 
+
 ############
 # System Controls
 ############
 def Logout():
     os.system("shutdown /l")
+
+
 def ShutDown():
     os.system("shutdown /s")
+
+
 def Restart():
     os.system("shutdown /r")
+
+
+############
+# System Controls
+############
+def Songs():
+    songs_dir = "D://Music"
+    songs = os.listdir(songs_dir)
+    os.startfile(os.path.join(songs_dir, songs[0]))
+
+
 ############
 """
 Main func.
@@ -191,6 +207,8 @@ if __name__ == "__main__":
             ShutDown()
         elif cfg.SysStart in query:
             Restart()
+        elif cfg.BaymaxSong in query:
+            Songs()
         elif cfg.BaymaxOff in query:
             speak(cfg.MissYou)
             quit()
