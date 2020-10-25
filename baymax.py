@@ -257,7 +257,7 @@ it'll call greet first Then it'll check for the usr voice in query
 and matches and execute the particular func
 """
 ############
-def run_baymax():
+if __name__ == "__main__":
     # greet()  # only once
     while True:
         query = UserCmd().lower()
