@@ -1,9 +1,8 @@
 # Python Virtual Assitant
 <p>  
-<img src="https://www.vectorlogo.zone/util/preview.html?image=/logos/python/python-icon.svg" alt="python" width="40" height="40"/>
-<img src="https://www.vectorlogo.zone/util/preview.html?image=/logos/wikipedia/wikipedia-icon.svg" alt="wikipedia" width="40" height="40"/>
-<img src="https://www.vectorlogo.zone/util/preview.html?image=/logos/google_chrome/google_chrome-icon.svg" alt="google_chrome" width="40" height="40"/>
- 
+<img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="python" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/logos/wikipedia/wikipedia-icon.svg" alt="wikipedia" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/logos/google_chrome/google_chrome-icon.svg" alt="google_chrome" width="40" height="40"/>
 </p> 
 
 ## Folder Structure
