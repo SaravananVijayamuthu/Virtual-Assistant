@@ -258,7 +258,7 @@ and matches and execute the particular func
 """
 ############
 if __name__ == "__main__":
-    # greet()  # only once
+    greet()  # only once
     while True:
         query = UserCmd().lower()
         if cfg.BaymaxTime in query:
