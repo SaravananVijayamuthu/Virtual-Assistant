@@ -1,6 +1,9 @@
 # Python Virtual Assitant
 <p>  
-<img src="https://devicons.github.io/devicon/devicon.git/icons/python/python-original.svg" alt="python" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/util/preview.html?image=/logos/python/python-icon.svg" alt="python" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/util/preview.html?image=/logos/wikipedia/wikipedia-icon.svg" alt="wikipedia" width="40" height="40"/>
+<img src="https://www.vectorlogo.zone/util/preview.html?image=/logos/google_chrome/google_chrome-icon.svg" alt="google_chrome" width="40" height="40"/>
+ 
 </p> 
 
 ## Folder Structure
@@ -10,14 +13,9 @@
  ┣ 📜.gitignore
  ┣ 📜baymax.py
  ┣ 📜config.py
- ┣ 📜data.txt
- ┣ 📜debug.log
  ┣ 📜imports.py
  ┣ 📜README.md
- ┣ 📜requirements.txt
- ┣ 📜screenshot.png
- ┣ 📜SSHKEY
- ┗ 📜SSHKEY.pub
+ ┗ 📜requirements.txt
 ```
 
 Created a Virtual Assitant using prebuild modules in python
